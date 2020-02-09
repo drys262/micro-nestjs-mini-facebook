@@ -1,22 +1,25 @@
 import { Module } from '@nestjs/common';
-import { UserController } from './controllers/user/user.controller';
-import { ChatGateway } from './gateways/chat.gateway';
-import { AlertGateway } from './gateways/alert.gateway';
-import { AlertController } from './controllers/alert/alert.controller';
 import ClientModules from './library/clients.module';
 import { GraphQLModule } from '@nestjs/graphql';
-import { UserResolver } from './resolvers/user/user.resolver';
+import { AlertModule } from './modules/alert/alert.module';
+import { ChatModule } from './modules/chat/chat.module';
+import { PostModule } from './modules/post/post.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
 	imports: [
-		ClientModules,
+		/* Application Modules */
+		AlertModule,
+		ChatModule,
+		PostModule,
+		UserModule,
+
+		/* Third Party Modules */
 		GraphQLModule.forRoot({
 			debug: true,
 			playground: true,
 			autoSchemaFile: 'schema.gql',
 		}),
 	],
-	controllers: [UserController, AlertController],
-	providers: [ChatGateway, AlertGateway, UserResolver],
 })
 export class AppModule {}

@@ -1,9 +1,9 @@
 import { Resolver, Query, Args } from '@nestjs/graphql';
 
-@Resolver('User')
+@Resolver()
 export class UserResolver {
-	@Query('user')
-	async getUser(@Args('id') id: number) {
+	@Query(() => String)
+	async getUser() {
 		return 'user here';
 	}
 }
