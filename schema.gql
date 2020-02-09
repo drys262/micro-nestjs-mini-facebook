@@ -3,6 +3,32 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input CreateUserInput {
+  userId: String!
+  displayName: String!
+  email: String!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): Boolean!
+  updateUser(input: UpdateUserInput!): Boolean!
+  deleteUser(id: ID!): Boolean!
+}
+
 type Query {
-  getUser: String!
+  users: [User!]!
+  user(id: ID!): User!
+}
+
+input UpdateUserInput {
+  id: String!
+  displayName: String!
+  email: String!
+}
+
+type User {
+  id: ID!
+  userId: String!
+  displayName: String!
+  email: String!
 }
