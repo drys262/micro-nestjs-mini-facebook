@@ -9,23 +9,23 @@ import {
 	deleteUserPattern,
 } from '@app/shared';
 import { ClientProxy } from '@nestjs/microservices';
-import { User } from '../types/user.type';
+import { UserType } from '../types/user.type';
 import { CreateUserInput } from '../inputs/user.input';
 import { UpdateUserInput } from '../inputs/update-user.input';
 import { ID } from 'type-graphql';
 
-@Resolver(of => User)
+@Resolver(of => UserType)
 export class UserResolver {
 	constructor(@Inject(USER_SERVICE) private readonly client: ClientProxy) {}
 
-	@Query(() => [User])
+	@Query(() => [UserType])
 	async users() {
-		return this.client.send<Promise<User[]>>(getUsersPattern, {});
+		return this.client.send<Promise<UserType[]>>(getUsersPattern, {});
 	}
 
-	@Query(() => User)
+	@Query(() => UserType)
 	async user(@Args({ name: 'id', type: () => ID }) id: string) {
-		return this.client.send<Promise<User>, string>(getUserPattern, id);
+		return this.client.send<Promise<UserType>, string>(getUserPattern, id);
 	}
 
 	@Mutation(() => Boolean)

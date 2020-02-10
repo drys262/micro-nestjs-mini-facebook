@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { UserResolver } from './resolvers/user.resolver';
-import { UserController } from './controllers/user.controller';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { USER_SERVICE, userServiceOptions } from '@app/shared';
 
@@ -17,7 +16,7 @@ import { USER_SERVICE, userServiceOptions } from '@app/shared';
 			},
 		]),
 	],
-	controllers: [UserController],
+	controllers: [],
 	providers: [UserResolver],
 })
 export class UserModule {}
