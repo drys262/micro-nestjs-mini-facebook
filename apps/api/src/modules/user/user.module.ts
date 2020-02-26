@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { UserResolver } from './resolvers/user.resolver';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { USER_SERVICE, userServiceOptions } from '@app/shared';
+import { UserResolver } from './resolvers/user.resolver';
 
 @Module({
 	imports: [

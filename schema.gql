@@ -16,8 +16,8 @@ type Mutation {
 }
 
 type Query {
-  users: [User!]!
-  user(id: ID!): User!
+  users: [UserType!]!
+  user(id: ID!): UserType!
 }
 
 input UpdateUserInput {
@@ -26,7 +26,7 @@ input UpdateUserInput {
   email: String!
 }
 
-type User {
+type UserType {
   id: ID!
   userId: String!
   displayName: String!

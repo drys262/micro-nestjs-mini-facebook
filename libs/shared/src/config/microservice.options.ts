@@ -2,17 +2,17 @@ import { MicroserviceOptions } from '@nestjs/common/interfaces/microservices/mic
 import { Transport } from '@nestjs/microservices';
 
 export const userServiceOptions = {
-  transport: Transport.TCP,
-  options: {
-    host: '127.0.0.1',
-    port: 8000,
-  },
+	transport: Transport.TCP,
+	options: {
+		host: '127.0.0.1',
+		port: 8000,
+	},
 };
 
 export const postServiceOptions: MicroserviceOptions = {
-  transport: Transport.TCP,
-  options: {
-    host: '127.0.0.1',
-    port: 8001,
-  },
+	transport: Transport.TCP,
+	options: {
+		host: '127.0.0.1',
+		port: 8001,
+	},
 };

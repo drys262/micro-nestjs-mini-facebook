@@ -9,10 +9,10 @@ import {
 	deleteUserPattern,
 } from '@app/shared';
 import { ClientProxy } from '@nestjs/microservices';
+import { ID } from 'type-graphql';
 import { UserType } from '../types/user.type';
 import { CreateUserInput } from '../inputs/user.input';
 import { UpdateUserInput } from '../inputs/update-user.input';
-import { ID } from 'type-graphql';
 
 @Resolver(of => UserType)
 export class UserResolver {

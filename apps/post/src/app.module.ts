@@ -1,11 +1,17 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PostController } from './post/post.controller';
+import { MongooseModule } from '@nestjs/mongoose';
+import mongooseConnection from 'apps/user/src/library/mongoose.connection';
 
 @Module({
-  imports: [],
-  controllers: [AppController, PostController],
-  providers: [AppService],
+	imports: [
+		MongooseModule.forRoot('mongodb://localhost:27017/mf-post-service', {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+			useFindAndModify: true,
+			autoIndex: true,
+		}),
+		mongooseConnection,
+	],
+	providers: [],
 })
 export class AppModule {}

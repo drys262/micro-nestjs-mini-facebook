@@ -1,6 +1,5 @@
-import { Controller, Body, UseFilters } from '@nestjs/common';
+import { Controller, Body } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { UserService } from '../../services/user/user.service';
 import {
 	createUserPattern,
 	getUsersPattern,
@@ -10,6 +9,7 @@ import {
 	deleteUserPattern,
 } from '@app/shared';
 import { CreateUserDto, UpdateUserDto } from '@app/shared/dto';
+import { UserService } from '../../services/user/user.service';
 
 @Controller('user')
 export class UserController {

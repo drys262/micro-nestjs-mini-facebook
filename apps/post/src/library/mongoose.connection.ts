@@ -1,6 +1,6 @@
 import { MongooseModule } from '@nestjs/mongoose';
-import userSchema from '../schema/user.schema';
+import postSchema from '../schema/post.schema';
 
 export default MongooseModule.forFeature([
-	{ name: 'User', schema: userSchema },
+	{ name: 'Post', schema: postSchema },
 ]);
