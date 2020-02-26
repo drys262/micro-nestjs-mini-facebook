@@ -4,7 +4,7 @@ import { UserModel, CreateUserDto, UpdateUserDto } from '@app/shared';
 import { Model } from 'mongoose';
 
 import { InjectModel } from '@nestjs/mongoose';
-import { ResourceException } from '@app/shared/exceptions/resource.exception';
+import { ResourceNotFoundException } from '@app/shared/exceptions/resource.exception';
 
 @Injectable()
 export class UserRepository {
@@ -21,9 +21,15 @@ export class UserRepository {
 	async findUserById(id: string): Promise<UserModel> {
 		const user = await this.userModel.findById(id);
 		if (!user) {
-			throw new ResourceException('User');
+			throw new ResourceNotFoundException('User', id);
 		}
 		return user;
+	}
+
+	async findUserByFirebaseId(userId: string): Promise<UserModel> {
+		return this.userModel.findOne({
+			userId,
+		});
 	}
 
 	async create(createUserDto: CreateUserDto): Promise<boolean> {

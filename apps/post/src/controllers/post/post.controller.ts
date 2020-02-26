@@ -1,5 +1,9 @@
-import { Controller, Body } from '@nestjs/common';
-import { MessagePattern } from '@nestjs/microservices';
+import { Controller, Body, Inject, UseFilters } from '@nestjs/common';
+import {
+	MessagePattern,
+	ClientProxy,
+	RpcException,
+} from '@nestjs/microservices';
 import {
 	createPostPattern,
 	updatePostPattern,
@@ -9,10 +13,15 @@ import {
 	getAllPostPattern,
 	PostModel,
 	getPostByIdPattern,
+	USER_SERVICE,
+	UserModel,
+	getUserPattern,
 } from '@app/shared';
 import { PostService } from '../../services/post.service';
+import { ExceptionFilter } from '../../exceptions/rpc-exception.filter';
 
 @Controller('post')
+@UseFilters(ExceptionFilter)
 export class PostController {
 	constructor(private readonly postService: PostService) {}
 

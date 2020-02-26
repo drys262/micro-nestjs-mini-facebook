@@ -1,8 +1,8 @@
-import { Field, InputType } from 'type-graphql';
+import { Field, InputType, ID } from 'type-graphql';
 
 @InputType()
 export class UpdateUserInput {
-	@Field()
+	@Field(() => ID)
 	id: string;
 
 	@Field()

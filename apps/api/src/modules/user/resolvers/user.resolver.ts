@@ -11,7 +11,7 @@ import {
 import { ClientProxy } from '@nestjs/microservices';
 import { ID } from 'type-graphql';
 import { UserType } from '../types/user.type';
-import { CreateUserInput } from '../inputs/user.input';
+import { CreateUserInput } from '../inputs/create-user.input';
 import { UpdateUserInput } from '../inputs/update-user.input';
 
 @Resolver(of => UserType)

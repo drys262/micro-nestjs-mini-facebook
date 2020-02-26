@@ -7,6 +7,7 @@ import {
 	getUserPattern,
 	updateUserPattern,
 	deleteUserPattern,
+	getUsersByFirebaseIdPattern,
 } from '@app/shared';
 import { CreateUserDto, UpdateUserDto } from '@app/shared/dto';
 import { UserService } from '../../services/user/user.service';
@@ -23,6 +24,11 @@ export class UserController {
 	@MessagePattern(getUserPattern)
 	getUser(id: string): Promise<UserModel> {
 		return this.userService.getUser(id);
+	}
+
+	@MessagePattern(getUsersByFirebaseIdPattern)
+	getUserByFirebaseId(id: string): Promise<UserModel> {
+		return this.userService.getUserByFirebaseId(id);
 	}
 
 	@MessagePattern(createUserPattern)

@@ -2,6 +2,7 @@
 export const showUsernamePattern = 'showUsernamePattern';
 export const createUserPattern = 'createUserPattern';
 export const getUsersPattern = 'getUsersPattern';
+export const getUsersByFirebaseIdPattern = 'getUsersByFirebaseIdPattern';
 export const getUserPattern = 'getUserPattern';
 export const updateUserPattern = 'updateUserPattern';
 export const deleteUserPattern = 'deleteUserPattern';

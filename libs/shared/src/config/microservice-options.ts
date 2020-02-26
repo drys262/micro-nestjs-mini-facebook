@@ -9,7 +9,7 @@ export const userServiceOptions = {
 	},
 };
 
-export const postServiceOptions: MicroserviceOptions = {
+export const postServiceOptions = {
 	transport: Transport.TCP,
 	options: {
 		host: '127.0.0.1',

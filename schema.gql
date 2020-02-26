@@ -3,6 +3,11 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input CreatePostInput {
+  userId: String!
+  description: String!
+}
+
 input CreateUserInput {
   userId: String!
   displayName: String!
@@ -10,18 +15,34 @@ input CreateUserInput {
 }
 
 type Mutation {
+  createPost(input: CreatePostInput!): Boolean!
+  updatePost(input: UpdatePostInput!): Boolean!
+  deletePost(id: ID!): Boolean!
   createUser(input: CreateUserInput!): Boolean!
   updateUser(input: UpdateUserInput!): Boolean!
   deleteUser(id: ID!): Boolean!
 }
 
+type PostType {
+  id: ID
+  userId: String
+  description: String
+}
+
 type Query {
+  posts: [PostType!]!
+  post(id: ID!): PostType!
   users: [UserType!]!
   user(id: ID!): UserType!
 }
 
+input UpdatePostInput {
+  id: ID!
+  description: String!
+}
+
 input UpdateUserInput {
-  id: String!
+  id: ID!
   displayName: String!
   email: String!
 }
