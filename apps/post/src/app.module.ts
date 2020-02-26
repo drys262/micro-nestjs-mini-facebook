@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import mongooseConnection from 'apps/user/src/library/mongoose.connection';
+import { PostController } from './controllers/post/post.controller';
+import mongooseConnection from './library/mongoose.connection';
+import { PostService } from './services/post.service';
+import { PostRepository } from './repository/post.repository';
 
 @Module({
 	imports: [
@@ -12,6 +15,7 @@ import mongooseConnection from 'apps/user/src/library/mongoose.connection';
 		}),
 		mongooseConnection,
 	],
-	providers: [],
+	controllers: [PostController],
+	providers: [PostService, PostRepository],
 })
 export class AppModule {}

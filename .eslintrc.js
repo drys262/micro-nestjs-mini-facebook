@@ -54,5 +54,6 @@ module.exports = {
 		'import/export': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
 		'class-methods-use-this': 'off',
+		'lines-between-class-members': 'off',
 	},
 };
