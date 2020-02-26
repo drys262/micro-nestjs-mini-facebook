@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto, UpdateUserDto } from '@app/shared/dto';
 import { UserModel } from '@app/shared';
-import { UserRepository } from '../../repository/user.repository';
 import { RpcException } from '@nestjs/microservices';
+import { UserRepository } from '../../repository/user.repository';
 
 @Injectable()
 export class UserService {

@@ -8,8 +8,8 @@ import {
 	getUserPattern,
 	getUsersByFirebaseIdPattern,
 } from '@app/shared';
-import { PostRepository } from '../repository/post.repository';
 import { UserType } from 'apps/api/src/modules/user/types/user.type';
+import { PostRepository } from '../repository/post.repository';
 
 @Injectable()
 export class PostService {
