@@ -1,4 +1,4 @@
-export class UpdatePostDto {
+export type UpdatePostDto = {
 	id: string;
 	description: string;
-}
+};

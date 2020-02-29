@@ -1,5 +1,3 @@
-export * from './shared.module';
-export * from './shared.service';
 export * from './config';
 export * from './constant';
 export * from './library';

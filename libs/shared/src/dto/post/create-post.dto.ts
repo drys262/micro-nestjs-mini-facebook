@@ -1,4 +1,4 @@
-export class CreatePostDto {
+export type CreatePostDto = {
 	userId: string;
 	description: string;
-}
+};

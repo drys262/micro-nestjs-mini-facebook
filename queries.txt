@@ -1,0 +1,63 @@
+/* GET ALL users */
+query {
+  users {
+    id
+    userId
+    email
+    displayName
+  }
+}
+
+/* GET specific user */
+query($id: ID!) {
+  user(id: $id) {
+    id
+    userId
+    displayName
+    email
+  }
+}
+params:
+{
+	"id": "usr_c23e0685185245b0b45c4ba4bb101fd4"
+}
+
+/* Create a user */
+mutation($input: CreateUserInput!) {
+	createUser(input: $input)
+}
+params:
+{
+	"input": {
+		"userId": "firebaseUserId1",
+		"displayName": "Dylan Koei Chavez",
+		"email": "dkchavez0987@gmail.com"
+	}
+}
+
+/* Update a user */
+mutation($input: UpdateUserInput!) {
+	updateUser(input: $input)
+}
+params:
+{
+	"input": {
+		"id": "prefix usr id",
+		"displayName": "Drys Chavez",
+		"email": "drys@gmail.com"
+	}
+}
+
+/* Delete a user */
+mutation($id: ID!) {
+	deleteUser(id: $id)
+}
+params:
+{
+	"id": "prefix usr id"
+}
+
+
+
+
+

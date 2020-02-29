@@ -1,7 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { UserService } from './user.service';
-import { UserRepository } from '../../repository/user.repository';
-import mongooseConnection from '../../library/mongoose.connection';
 import appModuleConfig from '../../library/app-module-config';
 
 describe('UserService', () => {

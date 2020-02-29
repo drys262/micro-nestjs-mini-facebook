@@ -1,8 +1,9 @@
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 import { MongooseModule } from '@nestjs/mongoose';
+import { EventModule } from '@app/event';
 import { UserService } from '../services/user/user.service';
 import { UserRepository } from '../repository/user.repository';
-import mongooseConnection from './mongoose.connection';
+import mongooseSchema from './mongoose.schema';
 import { UserController } from '../controllers/user/user.controller';
 
 export default {
@@ -13,7 +14,8 @@ export default {
 			useFindAndModify: true,
 			autoIndex: true,
 		}),
-		mongooseConnection,
+		mongooseSchema,
+		EventModule,
 	],
 	controllers: [UserController],
 	providers: [UserService, UserRepository],

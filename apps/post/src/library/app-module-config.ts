@@ -2,7 +2,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ModuleMetadata } from '@nestjs/common/interfaces';
 import { USER_SERVICE, userServiceOptions } from '@app/shared';
-import mongooseConnection from './mongoose.connection';
+import mongooseSchema from './mongoose.schema';
 import { PostController } from '../controllers/post/post.controller';
 import { PostService } from '../services/post.service';
 import { PostRepository } from '../repository/post.repository';
@@ -25,7 +25,7 @@ export default {
 			useFindAndModify: true,
 			autoIndex: true,
 		}),
-		mongooseConnection,
+		mongooseSchema,
 	],
 	controllers: [PostController],
 	providers: [PostService, PostRepository],
