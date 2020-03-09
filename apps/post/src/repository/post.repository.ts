@@ -16,6 +16,12 @@ export class PostRepository {
 		return this.postModel.find();
 	}
 
+	async findPostByUserId(userId: string): Promise<PostModel[]> {
+		return this.postModel.find({
+			userId,
+		});
+	}
+
 	async findPostById(id: string): Promise<PostModel> {
 		return this.postModel.findById(id);
 	}

@@ -1,32 +1,22 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es2017",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
-    "paths": {
-      "@app/shared": [
-        "libs/shared/src"
-      ],
-      "@app/shared/*": [
-        "libs/shared/src/*"
-      ],
-      "@app/event": [
-        "libs/event/src"
-      ],
-      "@app/event/*": [
-        "libs/event/src/*"
-      ]
-    }
-  },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+	"compilerOptions": {
+		"module": "commonjs",
+		"declaration": true,
+		"removeComments": true,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"target": "es2017",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"baseUrl": "./",
+		"incremental": true,
+		"esModuleInterop": true,
+		"paths": {
+			"@app/shared": ["libs/shared/src"],
+			"@app/shared/*": ["libs/shared/src/*"],
+			"@app/event": ["libs/event/src"],
+			"@app/event/*": ["libs/event/src/*"]
+		}
+	},
+	"exclude": ["node_modules", "dist"]
 }

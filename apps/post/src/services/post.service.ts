@@ -33,12 +33,13 @@ export class PostService {
 		return post;
 	}
 
+	async getPostByUserId(userId: string): Promise<PostModel[]> {
+		return this.postRepository.findPostByUserId(userId);
+	}
+
 	async createPost(createPostDto: CreatePostDto): Promise<boolean> {
 		const user = await this.userClient
-			.send<Promise<UserType>, string>(
-				getUsersByFirebaseIdPattern,
-				createPostDto.userId,
-			)
+			.send<Promise<UserType>, string>(getUserPattern, createPostDto.userId)
 			.toPromise();
 		if (!user) {
 			throw new RpcException({

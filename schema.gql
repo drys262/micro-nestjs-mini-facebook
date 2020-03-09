@@ -9,7 +9,7 @@ input CreatePostInput {
 }
 
 input CreateUserInput {
-  userId: String!
+  id: ID!
   displayName: String!
   email: String!
 }
@@ -49,7 +49,7 @@ input UpdateUserInput {
 
 type UserType {
   id: ID!
-  userId: String!
   displayName: String!
   email: String!
+  posts: [PostType!]!
 }

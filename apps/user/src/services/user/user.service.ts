@@ -13,11 +13,7 @@ export class UserService {
 	}
 
 	async getUser(id: string): Promise<UserModel> {
-		return this.userRepository.findUserById(id);
-	}
-
-	async getUserByFirebaseId(id: string): Promise<UserModel> {
-		const user = await this.userRepository.findUserByFirebaseId(id);
+		const user = await this.userRepository.findUserById(id);
 		if (!user) {
 			throw new RpcException({
 				resource: 'User',

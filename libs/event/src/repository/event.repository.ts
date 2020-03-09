@@ -13,8 +13,6 @@ export default class EventRepository {
 	) {}
 
 	async create(createEventDto: CreateEventDto): Promise<boolean> {
-		this.logger.log('Create Event here');
-		this.logger.log(createEventDto);
 		await this.eventModel.create({ ...createEventDto });
 		return true;
 	}

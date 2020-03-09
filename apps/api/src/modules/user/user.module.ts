@@ -1,6 +1,11 @@
 import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { USER_SERVICE, userServiceOptions } from '@app/shared';
+import {
+	USER_SERVICE,
+	userServiceOptions,
+	POST_SERVICE,
+	postServiceOptions,
+} from '@app/shared';
 import { UserResolver } from './resolvers/user.resolver';
 
 @Module({
@@ -12,6 +17,14 @@ import { UserResolver } from './resolvers/user.resolver';
 				options: {
 					host: userServiceOptions.options.host,
 					port: userServiceOptions.options.port,
+				},
+			},
+			{
+				name: POST_SERVICE,
+				transport: Transport.TCP,
+				options: {
+					host: postServiceOptions.options.host,
+					port: postServiceOptions.options.port,
 				},
 			},
 		]),

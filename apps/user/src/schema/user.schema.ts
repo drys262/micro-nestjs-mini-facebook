@@ -6,9 +6,8 @@ export default new mongoose.Schema(
 	{
 		_id: {
 			type: String,
-			default: () => generateId(ResourceType.User),
+			required: true,
 		},
-		userId: { type: String, required: true },
 		displayName: { type: String, required: true },
 		email: { type: String, required: true },
 	},

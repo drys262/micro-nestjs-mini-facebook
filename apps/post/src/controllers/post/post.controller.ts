@@ -16,6 +16,7 @@ import {
 	USER_SERVICE,
 	UserModel,
 	getUserPattern,
+	getPostByUserIdPattern,
 } from '@app/shared';
 import { PostService } from '../../services/post.service';
 import { ExceptionFilter } from '../../exceptions/rpc-exception.filter';
@@ -33,6 +34,11 @@ export class PostController {
 	@MessagePattern(getPostByIdPattern)
 	async getPostById(id: string): Promise<PostModel> {
 		return this.postService.getPostById(id);
+	}
+
+	@MessagePattern(getPostByUserIdPattern)
+	async getPostByUserId(userId: string): Promise<PostModel[]> {
+		return this.postService.getPostByUserId(userId);
 	}
 
 	@MessagePattern(createPostPattern)

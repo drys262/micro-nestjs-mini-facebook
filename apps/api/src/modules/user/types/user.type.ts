@@ -1,4 +1,5 @@
 import { ObjectType, Field, ID } from 'type-graphql';
+import { PostType } from '../../post/types/post.type';
 
 @ObjectType()
 export class UserType {
@@ -6,11 +7,11 @@ export class UserType {
 	id: string;
 
 	@Field()
-	userId: string;
-
-	@Field()
 	displayName: string;
 
 	@Field()
 	email: string;
+
+	@Field(type => [PostType])
+	posts: PostType[];
 }

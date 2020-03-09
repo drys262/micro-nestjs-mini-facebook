@@ -9,12 +9,16 @@ import {
 	deleteUserPattern,
 	getUsersByFirebaseIdPattern,
 } from '@app/shared';
+import { EventService, ADD_USER_EVENT } from '@app/event';
 import { CreateUserDto, UpdateUserDto } from '@app/shared/dto';
 import { UserService } from '../../services/user/user.service';
 
 @Controller('user')
 export class UserController {
-	constructor(private readonly userService: UserService) {}
+	constructor(
+		private readonly userService: UserService,
+		private readonly eventService: EventService,
+	) {}
 
 	@MessagePattern(getUsersPattern)
 	getUsers(): Promise<UserModel[]> {
@@ -26,14 +30,14 @@ export class UserController {
 		return this.userService.getUser(id);
 	}
 
-	@MessagePattern(getUsersByFirebaseIdPattern)
-	getUserByFirebaseId(id: string): Promise<UserModel> {
-		return this.userService.getUserByFirebaseId(id);
-	}
-
 	@MessagePattern(createUserPattern)
 	async createUser(@Body() createUserDto: CreateUserDto): Promise<boolean> {
-		return this.userService.createUser({ ...createUserDto });
+		this.eventService.emitEvent({
+			body: { ...createUserDto },
+			dateTimeCreated: new Date(),
+			type: ADD_USER_EVENT,
+		});
+		return true;
 	}
 
 	@MessagePattern(updateUserPattern)

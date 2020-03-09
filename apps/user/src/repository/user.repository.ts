@@ -29,14 +29,8 @@ export class UserRepository {
 		return user;
 	}
 
-	async findUserByFirebaseId(userId: string): Promise<UserModel> {
-		return this.userModel.findOne({
-			userId,
-		});
-	}
-
 	async create(createUserDto: CreateUserDto): Promise<boolean> {
-		await this.userModel.create({ ...createUserDto });
+		await this.userModel.create({ _id: createUserDto.id, ...createUserDto });
 		await this.eventService.emitEvent({
 			type: ADD_USER_EVENT,
 			dateTimeCreated: new Date(),
